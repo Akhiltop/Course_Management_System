@@ -1,0 +1,282 @@
+1 creating admin table
+
+create table Administration_details(
+username varchar(255),
+password varchar(255));
+
+2 inserting admin data
+
+insert into administration_details values('akhil','akhil');
+
+3 creating course table
+
+create table course(
+course_id	varchar(255) primary key,
+course_name	varchar(255),
+course_fee	int,
+course_description	varchar(255));
+
+4 inserting course data
+
+insert into course(course_id,course_name,course_fee,course_description) values('WEB','Web_Basics',1000,'Intro_to_web_development');
+insert into course(course_id,course_name,course_fee,course_description) values('JS','Java_Script',2000,'JS_in_building_web_pages');
+insert into course(course_id,course_name,course_fee,course_description) values('JA','Java',3000,'Develop_basics_of_java');
+insert into course(course_id,course_name,course_fee,course_description) values('SB','Spring_Boot',4000,'Making_java_applications');
+
+
+5 creating faculty table
+
+create table faculty(
+faculty_id	varchar(255) primary key,
+	faculty_name	varchar(255),
+	faculty_address	varchar(255),
+	mobile	varchar(255),
+	email	varchar(255),
+	username	varchar(255),
+	password	varchar(255));
+
+
+6 inserting faculty data
+
+insert into faculty(faculty_id,faculty_name,faculty_address,mobile,email,username,password) values('F001','Asritha','Nellore','8888888888','as@gmail.com','asritha','asritha');
+insert into faculty(faculty_id,faculty_name,faculty_address,mobile,email,username,password) values('F002','Varun','Bangalore','7777777777','va@gmail.com','varun','varun');
+insert into faculty(faculty_id,faculty_name,faculty_address,mobile,email,username,password) values('F003','Kaveri','Guntur','6666666666','ka@gmail.com','kaveri','kaveri');
+insert into faculty(faculty_id,faculty_name,faculty_address,mobile,email,username,password) values('F004','Deepak','Hyderabad','5555555555','de@gmail.com','deepak','deepak');
+
+
+7 creating batch table
+
+create table batch(
+batch_id	varchar(255) primary key,
+courseid	varchar(255),
+facultyid	varchar(255),
+no_of_students	int,
+batch_start_date	varchar(255),
+duration	int,
+foreign key(courseid) references course(course_id),
+foreign key(facultyid) references faculty(faculty_id));
+
+8 inserting batch data
+
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('WEB01','WEB','F001',10,'2023-01-20',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('WEB02','WEB','F002',20,'2023-01-21',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('WEB03','WEB','F003',30,'2023-01-22',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('WEB04','WEB','F004',40,'2023-01-23',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JS01','JS','F001',50,'2023-01-20',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JS02','JS','F002',60,'2023-01-21',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JS03','JS','F003',70,'2023-01-22',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JS04','JS','F004',80,'2023-01-23',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JA01','JA','F001',90,'2023-01-20',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JA02','JA','F002',100,'2023-01-21',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JA03','JA','F003',110,'2023-01-22',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('JA04','JA','F004',120,'2023-01-23',5);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('SB01','SB','F001',130,'2023-01-20',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('SB02','SB','F002',140,'2023-01-21',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('SB03','SB','F003',150,'2023-01-22',10);
+insert into batch(batch_id,courseid,facultyid,no_of_students,batch_start_date,duration) values('SB04','SB','F004',160,'2023-01-23',10);
+
+
+9 creating course plan table
+
+create table course_plan(
+plan_id	varchar(255) primary key,
+batchid	varchar(255),
+day_number	int,
+topic	varchar(255),
+status	varchar(255),
+foreign key(batchid) references batch(batch_id));
+
+10 inserting course plan data
+
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P001','WEB01',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P002','WEB01',2,'Vscode','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P003','WEB01',3,'HTML','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P004','WEB01',4,'CSS','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P005','WEB01',5,'Project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P006','WEB02',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P007','WEB02',2,'Vscode','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P008','WEB02',3,'HTML','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P009','WEB02',4,'CSS','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P010','WEB02',5,'Project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P011','WEB03',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P012','WEB03',2,'Vscode','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P013','WEB03',3,'HTML','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P014','WEB03',4,'CSS','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P015','WEB03',5,'Project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P016','WEB04',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P017','WEB04',2,'Vscode','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P018','WEB04',3,'HTML','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P019','WEB04',4,'CSS','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P020','WEB04',5,'Project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P021','JS01',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P022','JS01',2,'forloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P023','JS01',3,'whileloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P024','JS01',4,'ifelse','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P025','JS01',5,'project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P026','JS01',6,'js1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P027','JS01',7,'js2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P028','JS01',8,'js3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P029','JS01',9,'js4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P030','JS01',10,'js5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P031','JS02',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P032','JS02',2,'forloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P033','JS02',3,'whileloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P034','JS02',4,'ifelse','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P035','JS02',5,'project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P036','JS02',6,'js1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P037','JS02',7,'js2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P038','JS02',8,'js3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P039','JS02',9,'js4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P040','JS02',10,'js5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P041','JS03',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P042','JS03',2,'forloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P043','JS03',3,'whileloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P044','JS03',4,'ifelse','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P045','JS03',5,'project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P046','JS03',6,'js1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P047','JS03',7,'js2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P048','JS03',8,'js3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P049','JS03',9,'js4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P050','JS03',10,'js5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P051','JS04',1,'Basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P052','JS04',2,'forloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P053','JS04',3,'whileloop','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P054','JS04',4,'ifelse','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P055','JS04',5,'project','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P056','JS04',6,'js1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P057','JS04',7,'js2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P058','JS04',8,'js3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P059','JS04',9,'js4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P060','JS04',10,'js5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P061','JA01',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P062','JA01',2,'loops','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P063','JA01',3,'conditional','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P064','JA01',4,'project1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P065','JA01',5,'project2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P066','JA02',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P067','JA02',2,'loops','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P068','JA02',3,'conditional','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P069','JA02',4,'project1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P070','JA02',5,'project2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P071','JA03',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P072','JA03',2,'loops','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P073','JA03',3,'conditional','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P074','JA03',4,'project1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P075','JA03',5,'project2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P076','JA04',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P077','JA04',2,'loops','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P078','JA04',3,'conditional','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P079','JA04',4,'project1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P080','JA04',5,'project2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P081','SB01',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P082','SB01',2,'springboot','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P083','SB01',3,'application','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P084','SB01',4,'dao','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P085','SB01',5,'p1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P086','SB01',6,'p2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P087','SB01',7,'p3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P088','SB01',8,'p4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P089','SB01',9,'p5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P090','SB01',10,'p6','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P091','SB02',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P092','SB02',2,'springboot','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P093','SB02',3,'application','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P094','SB02',4,'dao','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P095','SB02',5,'p1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P096','SB02',6,'p2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P097','SB02',7,'p3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P098','SB02',8,'p4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P099','SB02',9,'p5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P100','SB02',10,'p6','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P101','SB03',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P102','SB03',2,'springboot','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P103','SB03',3,'application','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P104','SB03',4,'dao','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P105','SB03',5,'p1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P106','SB03',6,'p2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P107','SB03',7,'p3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P108','SB03',8,'p4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P109','SB03',9,'p5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P110','SB03',10,'p6','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P111','SB04',1,'basics','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P112','SB04',2,'springboot','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P113','SB04',3,'application','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P114','SB04',4,'dao','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P115','SB04',5,'p1','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P116','SB04',6,'p2','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P117','SB04',7,'p3','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P118','SB04',8,'p4','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P119','SB04',9,'p5','Pending');
+insert into course_plan(plan_id,batchid,day_number,topic,status) values('P120','SB04',10,'p6','Pending');
+
+
+11 creating day wise plan table
+
+create table Day_wise_planner(	
+session_date	varchar(255),
+planid	varchar(255),
+session_status	varchar(255),
+foreign key(planid) references course_plan(plan_id));
+
+
+12 inserting data in day wise plan
+
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-20','P001','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-20','P021','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-20','P061','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-20','P081','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P002','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P022','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P062','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P082','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P006','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P031','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P066','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-21','P091','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P003','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P023','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P063','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P083','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P007','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P032','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P067','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P092','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P012','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P041','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P071','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-22','P101','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P004','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P024','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P064','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P084','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P008','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P033','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P068','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P093','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P013','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P042','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P072','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P102','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P016','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P051','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P076','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-23','P111','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P005','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P025','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P065','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P085','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P009','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P034','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P069','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P094','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P014','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P043','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P073','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P103','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P017','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P052','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P077','completed');
+insert into Day_wise_planner(session_date,planid,session_status) values('2023-01-24','P112','completed');
+
+
+
