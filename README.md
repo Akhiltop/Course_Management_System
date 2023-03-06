@@ -58,3 +58,8 @@ CoursPlan:
 •	daynumber
 •	topic
 •	status: completed/pending
+
+
+# ER Diagram of the project
+
+![course_management](https://user-images.githubusercontent.com/86791332/222408009-30e68eff-6fee-437c-a5b4-e853609df864.jpg)
